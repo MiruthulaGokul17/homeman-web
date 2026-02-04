@@ -49,7 +49,7 @@ export default function Inventory() {
     ];
 
     return (
-        <section className="py-24 bg-white">
+        <section className="py-10 md:py-16 lg:py-24 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Header */}
@@ -106,7 +106,7 @@ export default function Inventory() {
                         const isMobileVisible = item.name === "Whole Milk" || item.name === "Large Eggs";
 
                         return (
-                            <FadeInItem key={idx} className={!isMobileVisible ? "hidden md:block" : ""}>
+                            <FadeInItem key={idx} className={idx === 3 ? "hidden lg:block" : (!isMobileVisible ? "hidden md:block" : "")}>
                                 {/* Desktop Card */}
                                 <div className="hidden md:flex bg-white rounded-3xl p-6 shadow-lg shadow-gray-100 border border-gray-100 hover:shadow-xl transition-shadow h-full flex-col justify-between hover:-translate-y-1 duration-300">
                                     <div>

@@ -24,7 +24,7 @@ export default function Insights() {
     ];
 
     return (
-        <section className="py-10 md:py-24 bg-white relative overflow-hidden">
+        <section className="py-10 md:py-16 lg:py-24 bg-white relative overflow-hidden">
             {/* Background Decor */}
             <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-green-50/30 to-transparent -z-10"></div>
 

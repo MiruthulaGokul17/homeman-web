@@ -43,11 +43,11 @@ export default function DownloadApp() {
 
             {/* Desktop View - Original */}
             <div className="hidden md:block">
-                <div className="grid lg:grid-cols-2 min-h-[600px]">
+                <div className="grid md:grid-cols-2 min-h-[500px] lg:min-h-[600px]">
 
                     {/* Left: Phone Mockups Image - Full Green Background */}
-                    <div className="relative bg-[#f0fdf4] flex items-center justify-center order-2 lg:order-1 overflow-hidden">
-                        <FadeIn direction="right" delay={0.2} className="relative w-full h-[400px] lg:h-[650px] max-w-[90%] lg:max-w-none">
+                    <div className="relative bg-[#f0fdf4] flex items-center justify-center order-2 md:order-1 overflow-hidden">
+                        <FadeIn direction="right" delay={0.2} className="relative w-full h-[400px] md:h-[500px] lg:h-[650px] max-w-[90%] lg:max-w-none">
                             <div className="relative w-full h-full">
                                 <Image
                                     src="/cta-phones.png"
@@ -60,10 +60,10 @@ export default function DownloadApp() {
                     </div>
 
                     {/* Right: Content - White Background */}
-                    <div className="flex flex-col justify-center px-4 sm:px-12 lg:px-20 py-16 lg:py-0 order-1 lg:order-2">
+                    <div className="flex flex-col justify-center px-4 sm:px-8 lg:px-20 py-16 md:py-0 order-1 md:order-2">
                         <div className="max-w-xl">
                             <FadeIn delay={0.1}>
-                                <h2 className="text-4xl lg:text-6xl font-extrabold text-[#0f1110] leading-[1.1] mb-6">
+                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0f1110] leading-[1.1] mb-6">
                                     Take <br />
                                     HomeMan with <br />
                                     you <br />
@@ -77,10 +77,10 @@ export default function DownloadApp() {
                                 </p>
                             </FadeIn>
 
-                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                            <div className="flex flex-col xl:flex-row gap-4 pt-4">
                                 {/* iOS Button */}
                                 <FadeIn delay={0.3}>
-                                    <button className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl px-4 py-3 shadow-xl shadow-gray-200/40 hover:shadow-2xl transition-all hover:-translate-y-1 w-full sm:w-auto h-14 min-w-[170px]">
+                                    <button className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl px-4 py-3 shadow-xl shadow-gray-200/40 hover:shadow-2xl transition-all hover:-translate-y-1 w-full xl:w-auto h-14 min-w-[170px]">
                                         <Apple size={24} className="text-black fill-current" />
                                         <div className="text-left flex flex-col justify-center">
                                             <div className="text-[9px] font-bold text-gray-900 uppercase tracking-wide leading-none mb-1">Download on</div>
@@ -91,7 +91,7 @@ export default function DownloadApp() {
 
                                 {/* Android Button */}
                                 <FadeIn delay={0.4}>
-                                    <button className="flex items-center gap-3 bg-[#2bdc4f] rounded-xl px-4 py-3 shadow-xl shadow-green-500/20 hover:shadow-green-500/30 transition-all hover:-translate-y-1 w-full sm:w-auto h-14 min-w-[170px]">
+                                    <button className="flex items-center gap-3 bg-[#2bdc4f] rounded-xl px-4 py-3 shadow-xl shadow-green-500/20 hover:shadow-green-500/30 transition-all hover:-translate-y-1 w-full xl:w-auto h-14 min-w-[170px]">
                                         <Play size={20} className="text-gray-900 fill-current ml-1" />
                                         <div className="text-left flex flex-col justify-center ml-1">
                                             <div className="text-[9px] font-bold text-gray-900 uppercase tracking-wide leading-none mb-1">GET IT ON</div>
@@ -103,7 +103,7 @@ export default function DownloadApp() {
 
                             {/* QR Code Section */}
                             <FadeIn delay={0.5}>
-                                <div className="flex items-center gap-5 pt-8">
+                                <div className="flex items-center gap-5 py-8">
                                     <div className="bg-white p-2 rounded-lg shadow-sm border border-gray-100 flex-shrink-0">
                                         <QrCode size={52} className="text-gray-900" />
                                     </div>
