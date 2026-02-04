@@ -17,7 +17,7 @@ export default function Recipes() {
         },
         {
             title: "Chicken Biriyani",
-            image: "/chicken-biryani.png",
+            image: "/chicken-biryani-new.jpg",
             pantryIngredients: ["Chicken", "Onion", "Tomato", "Olive Oil"],
             description: "Perfectly gathered ingredients that bring out deep flavors with zero additional shopping required.",
             time: "45 mins",
@@ -25,7 +25,7 @@ export default function Recipes() {
         },
         {
             title: "Hyderabad Chicken Biriyani",
-            image: "/hyd-chicken-biryani.png",
+            image: "/hyd-chicken-biryani-new.jpg",
             pantryIngredients: ["Tomato", "Onion", "Chicken", "Chili Flakes"],
             description: "A quick weeknight savior that uses your staple pantry ingredients for a healthy, spicy kick.",
             time: "45 mins",
@@ -46,7 +46,8 @@ export default function Recipes() {
                     </FadeIn>
                     <FadeIn delay={0.2}>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            Instant AI-generated recipes based on what’s already in your pantry. No extra trips to the store required.
+                            Instant AI-generated recipes based on what’s already in your pantry.<br />
+                            No extra trips to the store required.
                         </p>
                     </FadeIn>
                 </div>

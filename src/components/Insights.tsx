@@ -200,18 +200,18 @@ export default function Insights() {
                     </FadeIn>
                     <StaggerContainer className="flex gap-4 overflow-x-auto pb-6 scrollbar-hide p-1">
                         {transactions.map((tx, i) => (
-                            <FadeInItem key={i} className="min-w-[200px] flex-1">
+                            <FadeInItem key={i} className="min-w-[230px] flex-1">
                                 <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex items-center justify-between hover:shadow-md transition-shadow h-full">
-                                    <div className="flex items-center gap-3">
+                                    <div className="flex items-center gap-3 min-w-0">
                                         <div className={`w-10 h-10 rounded-full ${tx.bg} flex items-center justify-center flex-shrink-0`}>
                                             {tx.icon}
                                         </div>
-                                        <div>
-                                            <div className="font-bold text-gray-900 text-sm whitespace-nowrap">{tx.title}</div>
-                                            <div className="text-[10px] text-gray-500 uppercase font-bold tracking-wide">{tx.date}</div>
+                                        <div className="min-w-0 font-medium">
+                                            <div className="text-gray-900 text-sm font-bold truncate">{tx.title}</div>
+                                            <div className="text-[10px] text-gray-500 uppercase font-bold tracking-wide truncate">{tx.date}</div>
                                         </div>
                                     </div>
-                                    <div className="font-bold text-gray-900 ml-3">{tx.amount}</div>
+                                    <div className="font-bold text-gray-900 ml-3 whitespace-nowrap">{tx.amount}</div>
                                 </div>
                             </FadeInItem>
                         ))}
