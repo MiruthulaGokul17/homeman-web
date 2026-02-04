@@ -24,12 +24,12 @@ export default function Features() {
     ];
 
     return (
-        <section className="py-24 bg-white overflow-hidden">
+        <section className="py-10 md:py-24 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
 
                     {/* Left Content - Phone Mockup for Features */}
-                    <FadeIn direction="right" className="order-2 lg:order-1 relative flex justify-center">
+                    <FadeIn direction="right" className="hidden lg:flex order-2 lg:order-1 relative justify-center">
                         <div className="relative w-[300px] h-[600px] bg-gray-900 rounded-[3rem] border-8 border-gray-900 shadow-2xl overflow-hidden">
                             {/* Phone Notch */}
                             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-xl z-10"></div>
@@ -107,10 +107,10 @@ export default function Features() {
                             </p>
                         </FadeIn>
 
-                        <StaggerContainer delay={0.5} className="space-y-6 pt-4">
+                        <StaggerContainer delay={0.5} className="space-y-6 pt-4 w-fit mx-auto lg:mx-0">
                             {features.map((feature, idx) => (
                                 <FadeInItem key={idx}>
-                                    <div className="flex flex-row items-center gap-4 max-w-sm mx-auto lg:mx-0">
+                                    <div className="flex flex-row items-center gap-4 max-w-sm lg:w-auto">
                                         <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white shadow-sm border border-gray-100 flex items-center justify-center">
                                             {feature.icon}
                                         </div>

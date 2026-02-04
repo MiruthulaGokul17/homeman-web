@@ -88,7 +88,7 @@ export default function Recipes() {
     );
 
     return (
-        <section className="py-24 bg-gray-50">
+        <section className="py-10 md:py-24 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Header */}
@@ -150,18 +150,14 @@ export default function Recipes() {
                         {/* Mobile Navigation Arrows */}
                         <button
                             onClick={prevSlide}
-                            className="absolute left-0 top-32 -translate-y-1/2 z-20 w-8 h-8
-                                     bg-white/90 hover:bg-white rounded-full shadow-lg backdrop-blur-sm
-                                     flex items-center justify-center text-gray-800 transition-all border border-gray-100"
+                            className="absolute left-0 top-32 -translate-y-1/2 z-20 w-8 h-8 bg-white/90 hover:bg-white rounded-full shadow-lg backdrop-blur-sm flex items-center justify-center text-gray-800 transition-all border border-gray-100"
                             aria-label="Previous recipe"
                         >
                             <ChevronLeft size={20} />
                         </button>
                         <button
                             onClick={nextSlide}
-                            className="absolute right-0 top-32 -translate-y-1/2 z-20 w-8 h-8
-                                     bg-white/90 hover:bg-white rounded-full shadow-lg backdrop-blur-sm
-                                     flex items-center justify-center text-gray-800 transition-all border border-gray-100"
+                            className="absolute right-0 top-32 -translate-y-1/2 z-20 w-8 h-8 bg-white/90 hover:bg-white rounded-full shadow-lg backdrop-blur-sm flex items-center justify-center text-gray-800 transition-all border border-gray-100"
                             aria-label="Next recipe"
                         >
                             <ChevronRight size={20} />

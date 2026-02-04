@@ -7,16 +7,16 @@ import { FadeIn, StaggerContainer, FadeInItem } from "./animations";
 
 export default function Hero() {
     return (
-        <section className="relative pt-20 pb-24 overflow-hidden">
+        <section className="relative pt-20 pb-24 bg-green-50 overflow-hidden">
             {/* Background Gradient */}
-            <div className="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-l from-green-50 to-transparent"></div>
+            <div className="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-l from-green-100/50 to-transparent"></div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
                     <div className="space-y-8 text-center md:text-left">
                         <FadeIn delay={0.1}>
-                            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-green-50 text-[var(--color-primary)] text-sm font-bold tracking-widest uppercase mb-4 mx-auto md:mx-0">
+                            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white text-[var(--color-primary)] text-sm font-bold tracking-widest uppercase mb-4 mx-auto md:mx-0 shadow-sm">
                                 <div className="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse"></div>
                                 Now Live
                             </div>
@@ -106,15 +106,31 @@ export default function Hero() {
                     {/* Right Content - Phone Image in Card */}
                     <div className="relative z-10 flex justify-center items-center">
                         <FadeIn delay={0.2} direction="left" className="w-[340px] md:w-[460px]">
-                            <div className="relative w-full h-[320px] md:h-[400px]">
+                            {/* Mobile View: Standalone Mockup */}
+                            <div className="relative w-full h-[600px] md:hidden">
+                                <div className="relative w-full h-full flex justify-center items-center drop-shadow-2xl">
+                                    <div className="relative w-[280px] h-[580px] rounded-[2.5rem] overflow-hidden border-8 border-gray-900 shadow-2xl bg-gray-900">
+                                        <Image
+                                            src="/mobile-mockup.png"
+                                            alt="HomeMan App Interface"
+                                            fill
+                                            className="object-cover scale-[1.12]"
+                                            priority
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Desktop View: Card Container Style */}
+                            <div className="relative hidden md:block w-full h-[400px]">
                                 {/* Soft Green Glow Behind */}
                                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130%] h-[130%] bg-green-300/30 blur-[80px] -z-20 rounded-full pointer-events-none"></div>
 
                                 {/* Card Container - Light gray to match image background */}
                                 <div className="relative bg-[#f5f5f5] rounded-[2.5rem] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.15)] w-full h-full overflow-hidden">
                                     {/* Phone Image - Cropped to show top portion */}
-                                    <div className="absolute inset-0 flex justify-center pt-4 md:pt-6">
-                                        <div className="relative w-[320px] md:w-[420px] h-[700px] md:h-[1000px] rounded-[2.5rem]">
+                                    <div className="absolute inset-0 flex justify-center pt-6">
+                                        <div className="relative w-[420px] h-[1000px] rounded-[2.5rem]">
                                             <Image
                                                 src="/app.png"
                                                 alt="HomeMan App Interface"
