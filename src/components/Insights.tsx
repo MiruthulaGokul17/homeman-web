@@ -23,10 +23,10 @@ export default function Insights() {
                 {/* Header */}
                 <div className="mb-12">
                     <FadeIn delay={0.1}>
-                        <div className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider mb-2">Insights & Reports</div>
+                        <div className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider mb-2 text-center md:text-left">Insights & Reports</div>
                     </FadeIn>
-                    <div className="flex flex-col md:flex-row justify-between items-end gap-6">
-                        <div className="max-w-xl">
+                    <div className="flex flex-col md:flex-row justify-between items-end gap-6 text-center md:text-left">
+                        <div className="max-w-xl mx-auto md:mx-0">
                             <FadeIn delay={0.2}>
                                 <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
                                     Track Your Monthly Grocery Spend
@@ -38,7 +38,7 @@ export default function Insights() {
                                 </p>
                             </FadeIn>
                         </div>
-                        <FadeIn delay={0.3} direction="left">
+                        <FadeIn delay={0.3} direction="left" className="w-full md:w-auto flex justify-center md:justify-end">
                             <div className="flex items-center gap-4 bg-gray-50 p-2 rounded-xl border border-gray-100">
                                 <div className="text-xs font-medium text-gray-500 px-2">Monthly Budget: <span className="font-bold text-gray-900">₹12,000</span></div>
                                 <div className="bg-white px-3 py-1.5 rounded-lg shadow-sm text-xs font-bold text-gray-900 border border-gray-200">

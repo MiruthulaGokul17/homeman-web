@@ -1,10 +1,13 @@
 "use client";
 
-import { Search, Clock, ChevronRight, X } from "lucide-react";
+import { useRef, useState } from "react";
+import { Search, Clock, ChevronRight, ChevronLeft, X } from "lucide-react";
 import Image from "next/image";
 import { FadeIn, FadeInItem, StaggerContainer } from "./animations";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Recipes() {
+    const [currentSlide, setCurrentSlide] = useState(0);
     const ingredients = ["Tomato", "Onion", "Chicken"];
     const recipes = [
         {
@@ -33,27 +36,77 @@ export default function Recipes() {
         }
     ];
 
+    const nextSlide = () => {
+        setCurrentSlide((prev) => (prev + 1) % recipes.length);
+    };
+
+    const prevSlide = () => {
+        setCurrentSlide((prev) => (prev - 1 + recipes.length) % recipes.length);
+    };
+
+    const RecipeCard = ({ recipe }: { recipe: typeof recipes[0] }) => (
+        <div className="bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group h-full flex flex-col hover:-translate-y-2">
+            <div className="relative h-64 overflow-hidden flex-shrink-0">
+                <Image
+                    src={recipe.image}
+                    alt={recipe.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
+                    <span className="bg-[var(--color-primary)] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                        {recipe.match}% Match
+                    </span>
+                    <span className="bg-white text-gray-900 text-[10px] font-extrabold px-3 py-1.5 rounded-full shadow-md uppercase tracking-wider">
+                        Pantry Ready
+                    </span>
+                </div>
+            </div>
+
+            <div className="p-6 md:p-8 flex flex-col flex-1">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{recipe.title}</h3>
+
+                <div className="mb-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-relaxed">
+                    {recipe.pantryIngredients.join(", ")}
+                </div>
+
+                <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-1 hidden md:block">
+                    {recipe.description}
+                </p>
+
+                <div className="flex justify-between items-center pt-2 md:pt-6 border-t border-transparent md:border-gray-50 mt-auto">
+                    <div className="flex items-center text-gray-400 text-xs font-medium">
+                        <Clock size={16} className="mr-2" />
+                        {recipe.time}
+                    </div>
+                    <button className="flex items-center bg-green-50 text-[var(--color-primary)] font-bold text-xs px-4 py-2 rounded-full hover:bg-[var(--color-primary)] hover:text-white transition-colors group/btn">
+                        Cook Now <ChevronRight size={14} className="ml-1 group-hover/btn:translate-x-1 transition-transform" />
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+
     return (
         <section className="py-24 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Header */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-10 md:mb-16">
                     <FadeIn delay={0.1}>
-                        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
-                            Cook With What You Have
+                        <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">
+                            Cook With Precision
                         </h2>
                     </FadeIn>
                     <FadeIn delay={0.2}>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            Instant AI-generated recipes based on what’s already in your pantry.<br />
-                            No extra trips to the store required.
+                        <p className="text-base md:text-lg text-gray-600 max-w-xl mx-auto px-4">
+                            Instant AI recipes generated using ONLY what is currently in your pantry.
                         </p>
                     </FadeIn>
                 </div>
 
                 {/* Search / Filter Bar */}
-                <FadeIn delay={0.3}>
+                <FadeIn delay={0.3} className="hidden md:block">
                     <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl shadow-gray-200/50 p-4 md:p-5 mb-20">
                         {/* Row 1: Search with tags and placeholder */}
                         <div className="flex items-center gap-3 px-2 mb-4">
@@ -89,60 +142,69 @@ export default function Recipes() {
                     </div>
                 </FadeIn>
 
-                {/* Recipe Cards */}
-                <StaggerContainer className="grid md:grid-cols-3 gap-8">
-                    {recipes.map((recipe, idx) => (
-                        <FadeInItem key={idx}>
-                            <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group h-full flex flex-col hover:-translate-y-2">
-                                <div className="relative h-64 overflow-hidden flex-shrink-0">
-                                    <Image
-                                        src={recipe.image}
-                                        alt={recipe.title}
-                                        fill
-                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                    />
-                                    <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
-                                        <span className="bg-[var(--color-primary)] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
-                                            {recipe.match}% Match
-                                        </span>
-                                        <span className="bg-white text-gray-900 text-[10px] font-extrabold px-3 py-1.5 rounded-full shadow-md uppercase tracking-wider">
-                                            Pantry Ready
-                                        </span>
-                                    </div>
-                                </div>
+                {/* Recipe Cards Container */}
+                <div className="relative">
 
-                                <div className="p-8 flex flex-col flex-1">
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-4">{recipe.title}</h3>
+                    {/* Mobile View: Controlled Carousel */}
+                    <div className="md:hidden relative px-4">
+                        {/* Mobile Navigation Arrows */}
+                        <button
+                            onClick={prevSlide}
+                            className="absolute left-0 top-32 -translate-y-1/2 z-20 w-8 h-8
+                                     bg-white/90 hover:bg-white rounded-full shadow-lg backdrop-blur-sm
+                                     flex items-center justify-center text-gray-800 transition-all border border-gray-100"
+                            aria-label="Previous recipe"
+                        >
+                            <ChevronLeft size={20} />
+                        </button>
+                        <button
+                            onClick={nextSlide}
+                            className="absolute right-0 top-32 -translate-y-1/2 z-20 w-8 h-8
+                                     bg-white/90 hover:bg-white rounded-full shadow-lg backdrop-blur-sm
+                                     flex items-center justify-center text-gray-800 transition-all border border-gray-100"
+                            aria-label="Next recipe"
+                        >
+                            <ChevronRight size={20} />
+                        </button>
 
-                                    <div className="mb-4">
-                                        <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">In Your Pantry:</div>
-                                        <div className="flex flex-wrap gap-2">
-                                            {recipe.pantryIngredients.map((ing, i) => (
-                                                <span key={i} className="px-2 py-1 bg-green-50 text-[var(--color-primary)] text-[10px] font-bold rounded uppercase">
-                                                    {ing}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
+                        <div className="relative min-h-[400px]">
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={currentSlide}
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: -20 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <RecipeCard recipe={recipes[currentSlide]} />
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
 
-                                    <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-1">
-                                        {recipe.description}
-                                    </p>
+                        {/* Mobile Grid/Carousel Indicator Pips (Optional, adds nice touch) */}
+                        <div className="flex justify-center gap-2 mt-6">
+                            {recipes.map((_, idx) => (
+                                <button
+                                    key={idx}
+                                    onClick={() => setCurrentSlide(idx)}
+                                    className={`w-2 h-2 rounded-full transition-all ${idx === currentSlide ? "bg-[var(--color-primary)] w-4" : "bg-gray-300"
+                                        }`}
+                                    aria-label={`Go to slide ${idx + 1}`}
+                                />
+                            ))}
+                        </div>
+                    </div>
 
-                                    <div className="flex justify-between items-center pt-6 border-t border-gray-50 mt-auto">
-                                        <div className="flex items-center text-gray-500 text-sm">
-                                            <Clock size={16} className="mr-2" />
-                                            {recipe.time}
-                                        </div>
-                                        <button className="flex items-center text-[var(--color-primary)] font-bold text-sm hover:underline group-hover:translate-x-1 transition-transform">
-                                            Cook Now <ChevronRight size={16} className="ml-1" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </FadeInItem>
-                    ))}
-                </StaggerContainer>
+                    {/* Desktop View: Grid */}
+                    <div className="hidden md:grid md:grid-cols-3 gap-8 pb-8 md:pb-0">
+                        {recipes.map((recipe, idx) => (
+                            <FadeInItem key={idx}>
+                                <RecipeCard recipe={recipe} />
+                            </FadeInItem>
+                        ))}
+                    </div>
+
+                </div>
 
                 <div className="text-center mt-16">
                     <FadeIn delay={0.6}>
@@ -153,6 +215,6 @@ export default function Recipes() {
                 </div>
 
             </div>
-        </section>
+        </section >
     );
 }

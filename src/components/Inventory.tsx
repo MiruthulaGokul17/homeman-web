@@ -53,8 +53,8 @@ export default function Inventory() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Header */}
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                    <div>
+                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 text-center md:text-left">
+                    <div className="w-full md:w-auto">
                         <FadeIn delay={0.1}>
                             <div className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider mb-2">Inventory Dashboard</div>
                         </FadeIn>
@@ -64,13 +64,13 @@ export default function Inventory() {
                             </h2>
                         </FadeIn>
                         <FadeIn delay={0.3}>
-                            <p className="text-lg text-gray-600 max-w-xl">
+                            <p className="text-lg text-gray-600 max-w-xl mx-auto md:mx-0">
                                 A bird&apos;s eye view of your kitchen. Know exactly what you have and what&apos;s about to expire.
                             </p>
                         </FadeIn>
                     </div>
 
-                    <FadeIn delay={0.4} direction="left">
+                    <FadeIn delay={0.4} direction="left" className="w-full md:w-auto flex justify-center md:justify-end">
                         <button className="text-[var(--color-primary)] font-bold flex items-center hover:underline group">
                             View Full Inventory <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </button>

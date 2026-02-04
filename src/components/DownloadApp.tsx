@@ -24,8 +24,8 @@ export default function DownloadApp() {
                 </div>
 
                 {/* Right: Content - White Background */}
-                <div className="flex flex-col justify-center px-4 sm:px-12 lg:px-20 py-16 lg:py-0 order-1 lg:order-2">
-                    <div className="max-w-xl">
+                <div className="flex flex-col justify-center px-4 sm:px-12 lg:px-20 py-16 lg:py-0 order-1 lg:order-2 items-center lg:items-start text-center lg:text-left">
+                    <div className="max-w-xl w-full">
                         <FadeIn delay={0.1}>
                             <h2 className="text-4xl lg:text-6xl font-extrabold text-[#0f1110] leading-[1.1] mb-6">
                                 Take <br />
@@ -36,15 +36,15 @@ export default function DownloadApp() {
                         </FadeIn>
 
                         <FadeIn delay={0.2}>
-                            <p className="text-lg text-gray-500 max-w-md leading-relaxed mb-8">
+                            <p className="text-lg text-gray-500 max-w-md mx-auto lg:mx-0 leading-relaxed mb-8">
                                 Join 50,000+ home chefs who have transformed their kitchens. Available for iOS and Android.
                             </p>
                         </FadeIn>
 
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                        <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
                             {/* iOS Button */}
                             <FadeIn delay={0.3}>
-                                <button className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl px-4 py-3 shadow-xl shadow-gray-200/40 hover:shadow-2xl transition-all hover:-translate-y-1 w-full sm:w-auto h-14 min-w-[170px]">
+                                <button className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl px-4 py-3 shadow-xl shadow-gray-200/40 hover:shadow-2xl transition-all hover:-translate-y-1 w-full sm:w-auto h-14 min-w-[170px] justify-center lg:justify-start">
                                     <Apple size={24} className="text-black fill-current" />
                                     <div className="text-left flex flex-col justify-center">
                                         <div className="text-[9px] font-bold text-gray-900 uppercase tracking-wide leading-none mb-1">Download on</div>
@@ -55,7 +55,7 @@ export default function DownloadApp() {
 
                             {/* Android Button */}
                             <FadeIn delay={0.4}>
-                                <button className="flex items-center gap-3 bg-[#2bdc4f] rounded-xl px-4 py-3 shadow-xl shadow-green-500/20 hover:shadow-green-500/30 transition-all hover:-translate-y-1 w-full sm:w-auto h-14 min-w-[170px]">
+                                <button className="flex items-center gap-3 bg-[#2bdc4f] rounded-xl px-4 py-3 shadow-xl shadow-green-500/20 hover:shadow-green-500/30 transition-all hover:-translate-y-1 w-full sm:w-auto h-14 min-w-[170px] justify-center lg:justify-start">
                                     <Play size={20} className="text-gray-900 fill-current ml-1" />
                                     <div className="text-left flex flex-col justify-center ml-1">
                                         <div className="text-[9px] font-bold text-gray-900 uppercase tracking-wide leading-none mb-1">GET IT ON</div>

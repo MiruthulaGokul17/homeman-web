@@ -14,59 +14,62 @@ export default function Hero() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
-                    <div className="space-y-8">
+                    <div className="space-y-8 text-center md:text-left">
                         <FadeIn delay={0.1}>
-                            <h1 className="text-5xl md:text-6xl font-extrabold leading-tight text-gray-900">
+                            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-green-50 text-[var(--color-primary)] text-sm font-bold tracking-widest uppercase mb-4 mx-auto md:mx-0">
+                                <div className="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse"></div>
+                                Now Live
+                            </div>
+                            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-gray-900">
                                 Your Kitchen, <br />
-                                <span className="text-[var(--color-primary)] italic">Smarter.</span>
+                                <span className="text-[var(--color-primary)]">Smarter.</span>
                             </h1>
                         </FadeIn>
 
                         <FadeIn delay={0.2}>
-                            <p className="text-lg text-gray-600 max-w-lg leading-relaxed">
-                                AI-powered pantry management and recipe generation. Scan grocery
-                                receipts to track ingredients automatically, cook smarter meals,
-                                and stay within your budget.
+                            <p className="text-lg text-gray-600 max-w-lg mx-auto md:mx-0 leading-relaxed text-center md:text-left">
+                                AI-powered pantry management and recipe generation. Snap receipts and let HomeMan
+                                track your inventory effortlessly.
                             </p>
                         </FadeIn>
 
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <FadeIn delay={0.3} className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                        <div className="flex flex-col gap-4">
+                            <FadeIn delay={0.3} className="flex flex-col gap-4 w-full md:w-auto md:flex-row md:items-center">
                                 <Link
                                     href="#"
-                                    className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white bg-[var(--color-primary)] rounded-full shadow-lg shadow-green-500/30 hover:bg-green-600 transition-all hover:scale-105"
+                                    className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white bg-[var(--color-primary)] rounded-full shadow-lg shadow-green-500/30 hover:bg-green-600 transition-all hover:scale-105 w-full md:w-auto"
                                 >
                                     Start Free Trial <ArrowRight className="ml-2 h-5 w-5" />
                                 </Link>
                                 <Link
                                     href="#"
-                                    className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-gray-700 bg-white border border-gray-200 rounded-full hover:bg-gray-50 transition-all hover:border-gray-300"
+                                    className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-gray-900 bg-white border border-gray-200 rounded-full hover:bg-gray-50 transition-all hover:border-gray-300 w-full md:w-auto shadow-sm"
                                 >
-                                    <div className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center mr-3">
-                                        <Play className="h-3 w-3 fill-gray-700 text-gray-700" />
+                                    <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-3">
+                                        <Play className="h-3 w-3 fill-gray-900 text-gray-900" />
                                     </div>
                                     Watch Demo
                                 </Link>
                             </FadeIn>
                         </div>
 
-                        <div className="pt-6 flex flex-col gap-6">
+                        <div className="pt-6 flex flex-col gap-6 items-center md:items-start">
                             <FadeIn delay={0.4}>
-                                <div className="flex gap-3">
+                                <div className="flex gap-3 justify-center md:justify-start w-full">
                                     {/* App Store Button */}
-                                    <Link href="#" className="flex items-center gap-3 bg-gray-900 hover:bg-gray-800 rounded-xl px-5 py-3 transition-all">
+                                    <Link href="#" className="flex-1 md:flex-none flex items-center justify-center md:justify-start gap-3 bg-[#0F172A] hover:bg-gray-800 rounded-xl px-4 py-3 transition-all min-w-[140px]">
                                         <span className="text-white font-bold text-lg">iOS</span>
                                         <div className="text-left">
-                                            <div className="text-[10px] font-medium text-gray-400 uppercase tracking-wide">Download on the</div>
+                                            <div className="text-[9px] font-medium text-gray-400 uppercase tracking-wide">Download on the</div>
                                             <div className="text-sm font-semibold text-white leading-none">App Store</div>
                                         </div>
                                     </Link>
 
                                     {/* Google Play Button */}
-                                    <Link href="#" className="flex items-center gap-3 bg-gray-900 hover:bg-gray-800 rounded-xl px-5 py-3 transition-all">
-                                        <Play size={20} className="text-white fill-white" />
+                                    <Link href="#" className="flex-1 md:flex-none flex items-center justify-center md:justify-start gap-3 bg-[#0F172A] hover:bg-gray-800 rounded-xl px-4 py-3 transition-all min-w-[140px]">
+                                        <Play size={18} className="text-white fill-white" />
                                         <div className="text-left">
-                                            <div className="text-[10px] font-medium text-gray-400 uppercase tracking-wide">Get it on</div>
+                                            <div className="text-[9px] font-medium text-gray-400 uppercase tracking-wide">GET IT ON</div>
                                             <div className="text-sm font-semibold text-white leading-none">Google Play</div>
                                         </div>
                                     </Link>
@@ -74,7 +77,7 @@ export default function Hero() {
                             </FadeIn>
 
                             <FadeIn delay={0.5}>
-                                <div className="flex items-center gap-4">
+                                <div className="flex items-center gap-4 justify-center md:justify-start">
                                     <div className="flex items-center">
                                         <StaggerContainer className="flex -space-x-3">
                                             {[1, 2, 3].map((i) => (
@@ -82,6 +85,7 @@ export default function Hero() {
                                                     <div className="relative w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-gray-200">
                                                         <Image
                                                             src={`/avatar-${i}.png`}
+                                                            /* Note: Assuming these images exist based on existing code. If not, they might be broken but I'm just preserving them. */
                                                             alt={`User ${i}`}
                                                             fill
                                                             className="object-cover"

@@ -30,7 +30,13 @@ export default function Navbar() {
                         </Link>
                     </div>
 
-                    <div className="md:hidden flex items-center">
+                    <div className="md:hidden flex items-center gap-4">
+                         <Link
+                            href="#"
+                            className="px-4 py-2 bg-[var(--color-primary)] hover:bg-green-600 text-white text-sm rounded-full font-bold transition-colors shadow-lg shadow-green-500/30"
+                        >
+                            Join now
+                        </Link>
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="text-gray-600 hover:text-gray-900 focus:outline-none"

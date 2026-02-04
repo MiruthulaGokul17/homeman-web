@@ -1,24 +1,24 @@
 "use client";
 
-import { Scan, Barcode, Bell } from "lucide-react";
+import { ReceiptText, ScanBarcode, CalendarClock } from "lucide-react";
 import { FadeIn, FadeInItem, StaggerContainer } from "./animations";
 import { motion } from "framer-motion";
 
 export default function Features() {
     const features = [
         {
-            icon: <Scan className="w-6 h-6 text-green-600" />,
-            title: "Automatic receipt and bill scanning",
+            icon: <ReceiptText className="w-5 h-5 text-[var(--color-primary)]" />,
+            title: "Automatic receipt parsing",
             description: "Instantly extract items, prices, and quantities from any grocery receipt."
         },
         {
-            icon: <Barcode className="w-6 h-6 text-green-600" />,
-            title: "Barcode and product label recognition",
+            icon: <ScanBarcode className="w-5 h-5 text-[var(--color-primary)]" />,
+            title: "Barcode recognition",
             description: "Simply point your camera to add items to your pantry inventory."
         },
         {
-            icon: <Bell className="w-6 h-6 text-green-600" />,
-            title: "Expiry date tracking with smart alerts",
+            icon: <CalendarClock className="w-5 h-5 text-[var(--color-primary)]" />,
+            title: "Expiry date alerts",
             description: "Get notified before your food goes bad. Reduce waste, save money."
         }
     ];
@@ -51,7 +51,7 @@ export default function Features() {
                                             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                                             className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg flex items-center gap-2"
                                         >
-                                            <Scan className="w-4 h-4 text-[var(--color-primary)]" />
+                                            <ScanBarcode className="w-4 h-4 text-[var(--color-primary)]" />
                                             <span className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">Scanning...</span>
                                         </motion.div>
                                     </div>
@@ -87,36 +87,37 @@ export default function Features() {
                     </FadeIn>
 
                     {/* Right Content */}
-                    <div className="order-1 lg:order-2 space-y-8">
+                    <div className="order-1 lg:order-2 space-y-8 text-center lg:text-left">
                         <FadeIn delay={0.2}>
-                            <div className="inline-flex items-center px-3 py-1 rounded-full bg-green-100 text-[var(--color-primary)] text-sm font-bold tracking-wide uppercase">
+                            <div className="inline-flex items-center px-3 py-1 rounded-full bg-green-100 text-[var(--color-primary)] text-xs font-bold tracking-wide uppercase">
                                 Pantry Scan
                             </div>
                         </FadeIn>
 
                         <FadeIn delay={0.3}>
-                            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
                                 Effortless Scanning. <br />
                                 Zero Manual Entry.
                             </h2>
                         </FadeIn>
 
                         <FadeIn delay={0.4}>
-                            <p className="text-lg text-gray-600">
-                                Our AI instantly recognizes items from grocery receipts or kitchen shelves. Just snap a photo, and your inventory updates automatically in real time.
+                            <p className="text-base md:text-lg text-gray-600 max-w-md mx-auto lg:mx-0">
+                                Our AI vision recognizes items from your grocery bills or directly from your shelves.
                             </p>
                         </FadeIn>
 
                         <StaggerContainer delay={0.5} className="space-y-6 pt-4">
                             {features.map((feature, idx) => (
                                 <FadeInItem key={idx}>
-                                    <div className="flex gap-4">
-                                        <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center">
+                                    <div className="flex flex-row items-center gap-4 max-w-sm mx-auto lg:mx-0">
+                                        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white shadow-sm border border-gray-100 flex items-center justify-center">
                                             {feature.icon}
                                         </div>
-                                        <div>
-                                            <h4 className="font-bold text-gray-900 text-lg">{feature.title}</h4>
-                                            <p className="text-gray-600 text-sm mt-1">{feature.description}</p>
+                                        <div className="text-left">
+                                            <h4 className="font-bold text-gray-900 text-base">{feature.title}</h4>
+                                            {/* Description hidden on mobile to match image? Image shows just title. Keeping description hidden on mobile if needed or small. Image only shows titles "Automatic receipt parsing", etc. I will hide description on mobile, show on desktop. */}
+                                            <p className="text-gray-600 text-xs mt-0.5 md:block hidden">{feature.description}</p>
                                         </div>
                                     </div>
                                 </FadeInItem>
