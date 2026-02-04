@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 export default function Inventory() {
     const items = [
         {
-            name: "Milk",
+            name: "Whole Milk",
             detail: "2L • Dairy",
             quantity: 25,
             daysLeft: 2,
@@ -53,8 +53,9 @@ export default function Inventory() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Header */}
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 text-center md:text-left">
-                    <div className="w-full md:w-auto">
+                {/* Desktop Header */}
+                <div className="hidden md:flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                    <div>
                         <FadeIn delay={0.1}>
                             <div className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider mb-2">Inventory Dashboard</div>
                         </FadeIn>
@@ -77,48 +78,121 @@ export default function Inventory() {
                     </FadeIn>
                 </div>
 
+                {/* Mobile Header */}
+                <div className="md:hidden flex flex-col items-center text-center mb-10">
+                    <FadeIn delay={0.1}>
+                        <span className="bg-green-100 text-[var(--color-primary)] text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 inline-block">
+                            Inventory
+                        </span>
+                    </FadeIn>
+                    <FadeIn delay={0.2}>
+                        <h2 className="text-3xl font-extrabold text-gray-900 mb-3">
+                            Live Pantry Status
+                        </h2>
+                    </FadeIn>
+                    <FadeIn delay={0.3}>
+                        <p className="text-sm text-gray-400 max-w-xs mx-auto">
+                            Track freshness levels in real-time to avoid waste.
+                        </p>
+                    </FadeIn>
+                </div>
+
                 {/* Inventory Grid */}
-                <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
 
                     {/* Item Cards */}
-                    {items.map((item, idx) => (
-                        <FadeInItem key={idx}>
-                            <div className="bg-white rounded-3xl p-6 shadow-lg shadow-gray-100 border border-gray-100 hover:shadow-xl transition-shadow h-full flex flex-col justify-between hover:-translate-y-1 duration-300">
-                                <div>
-                                    <div className="flex justify-between items-start mb-6">
-                                        <div className={`w-12 h-12 rounded-full ${item.iconBg} flex items-center justify-center`}>
-                                            {item.icon}
+                    {items.map((item, idx) => {
+                        // Filter for mobile: specific items only
+                        const isMobileVisible = item.name === "Whole Milk" || item.name === "Large Eggs";
+
+                        return (
+                            <FadeInItem key={idx} className={!isMobileVisible ? "hidden md:block" : ""}>
+                                {/* Desktop Card */}
+                                <div className="hidden md:flex bg-white rounded-3xl p-6 shadow-lg shadow-gray-100 border border-gray-100 hover:shadow-xl transition-shadow h-full flex-col justify-between hover:-translate-y-1 duration-300">
+                                    <div>
+                                        <div className="flex justify-between items-start mb-6">
+                                            <div className={`w-12 h-12 rounded-full ${item.iconBg} flex items-center justify-center`}>
+                                                {item.icon}
+                                            </div>
+                                            <div className={`text-[10px] font-bold px-2 py-1 rounded-md uppercase flex items-center ${item.daysColor}`}>
+                                                {item.daysLeft <= 3 && <span className="mr-1">⚠️</span>}
+                                                {item.daysLeft} DAYS
+                                            </div>
                                         </div>
-                                        <div className={`text-[10px] font-bold px-2 py-1 rounded-md uppercase flex items-center ${item.daysColor}`}>
-                                            {item.daysLeft <= 3 && <span className="mr-1">⚠️</span>}
-                                            {item.daysLeft} DAYS
-                                        </div>
+
+                                        <h3 className="font-bold text-gray-900 text-lg mb-1">{item.name}</h3>
+                                        <p className="text-xs text-gray-500 font-medium mb-6">{item.detail}</p>
                                     </div>
 
-                                    <h3 className="font-bold text-gray-900 text-lg mb-1">{item.name}</h3>
-                                    <p className="text-xs text-gray-500 font-medium mb-6">{item.detail}</p>
+                                    <div>
+                                        <div className="flex justify-between items-end mb-2">
+                                            <span className="text-xs font-bold text-gray-400">Quantity Left</span>
+                                            <span className="text-sm font-bold text-gray-900">{item.quantity}%</span>
+                                        </div>
+                                        <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+                                            <motion.div
+                                                initial={{ width: 0 }}
+                                                whileInView={{ width: `${item.quantity}%` }}
+                                                transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+                                                className={`h-full rounded-full ${item.barColor}`}
+                                            ></motion.div>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div>
-                                    <div className="flex justify-between items-end mb-2">
-                                        <span className="text-xs font-bold text-gray-400">Quantity Left</span>
-                                        <span className="text-sm font-bold text-gray-900">{item.quantity}%</span>
+                                {/* Mobile Card - Exact Match */}
+                                <div className="md:hidden bg-white rounded-[2rem] p-5 shadow-sm border border-gray-100 flex items-center gap-5 relative">
+                                    {/* Icon Left */}
+                                    <div className={`w-14 h-14 rounded-full ${item.iconBg} flex items-center justify-center flex-shrink-0`}>
+                                        {item.icon}
                                     </div>
-                                    <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
-                                        <motion.div
-                                            initial={{ width: 0 }}
-                                            whileInView={{ width: `${item.quantity}%` }}
-                                            transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
-                                            className={`h-full rounded-full ${item.barColor}`}
-                                        ></motion.div>
+
+                                    {/* Content Right */}
+                                    <div className="flex-1 min-w-0">
+                                        <div className="flex justify-between items-start mb-1">
+                                            <h3 className="font-bold text-gray-900 text-lg leading-tight">{item.name}</h3>
+                                            <div className={`text-[10px] font-extrabold uppercase ${item.daysLeft <= 3 ? 'text-red-500' : 'text-green-500'}`}>
+                                                {item.daysLeft <= 3 ? `EXPIRES IN ${item.daysLeft}D` : 'FRESH'}
+                                            </div>
+                                        </div>
+
+                                        <div className="flex justify-between items-center mb-4">
+                                            {/* Status Tag */}
+                                            <span className={`text-[10px] font-bold px-3 py-1 rounded-lg uppercase ${item.quantity < 30 ? 'bg-orange-100 text-orange-500' : 'bg-red-50 text-red-500'}`}>
+                                                {item.quantity < 30 ? 'LOW STOCK' : 'EXPIRING SOON'}
+                                            </span>
+
+                                            {/* Toggle */}
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-[10px] font-bold text-gray-400 uppercase">NOTIFY</span>
+                                                <div className={`w-9 h-5 rounded-full relative ${item.daysLeft <= 3 ? 'bg-blue-500' : 'bg-gray-200'}`}>
+                                                    <div className={`w-3.5 h-3.5 rounded-full bg-white absolute top-0.5 transition-all ${item.daysLeft <= 3 ? 'left-[1.1rem]' : 'left-1'}`}></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div className="flex justify-between items-end mb-1.5">
+                                                <span className="text-[10px] font-bold text-gray-400">Freshness Status</span>
+                                                <span className="text-xs font-bold text-gray-900">{item.quantity}%</span>
+                                            </div>
+                                            <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                                                <motion.div
+                                                    initial={{ width: 0 }}
+                                                    whileInView={{ width: `${item.quantity}%` }}
+                                                    transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+                                                    className={`h-full rounded-full ${item.barColor}`}
+                                                ></motion.div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </FadeInItem>
-                    ))}
+                            </FadeInItem>
+                        );
+                    })}
 
-                    {/* Summary Card */}
-                    <FadeInItem>
+                    {/* Summary Card - Visible on Desktop only or adapted? Keeping simple for now, hide on mobile to match image focus */}
+                    <FadeInItem className="hidden md:block">
                         <div className="bg-[var(--color-primary)] rounded-3xl p-6 shadow-xl shadow-green-500/20 text-white flex flex-col justify-between h-full hover:scale-105 transition-transform duration-300">
                             <div>
                                 <div className="text-xs font-bold uppercase tracking-wider opacity-80 mb-2">Total Items</div>
