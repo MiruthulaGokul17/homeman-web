@@ -49,7 +49,7 @@ export default function Inventory() {
     ];
 
     return (
-        <section className="py-10 md:py-16 lg:py-24 bg-white">
+        <section className="py-10 md:py-16 lg:pt-5 lg:pb-24 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Header */}

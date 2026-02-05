@@ -4,10 +4,11 @@ import Link from "next/link";
 import { Play, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { FadeIn, StaggerContainer, FadeInItem } from "./animations";
+import LaunchPopup from "./LaunchPopup";
 
 export default function Hero() {
     return (
-        <section className="relative pt-20 pb-16 lg:pb-24 bg-green-50 overflow-hidden">
+        <section className="relative pt-8 pb-16 lg:pb-24 bg-green-50 overflow-hidden">
             {/* Background Gradient */}
             <div className="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-l from-green-100/50 to-transparent"></div>
 
@@ -35,21 +36,14 @@ export default function Hero() {
 
                         <div className="flex flex-col gap-4 items-center lg:items-start">
                             <FadeIn delay={0.3} className="flex flex-col gap-4 w-full md:w-auto md:flex-row md:items-center">
-                                <Link
-                                    href="#"
-                                    className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white bg-[var(--color-primary)] rounded-full shadow-lg shadow-green-500/30 hover:bg-green-600 transition-all hover:scale-105 w-full md:w-auto"
-                                >
-                                    Start Free Trial <ArrowRight className="ml-2 h-5 w-5" />
-                                </Link>
-                                <Link
-                                    href="#"
-                                    className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-gray-900 bg-white border border-gray-200 rounded-full hover:bg-gray-50 transition-all hover:border-gray-300 w-full md:w-auto shadow-sm"
-                                >
-                                    <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-3">
-                                        <Play className="h-3 w-3 fill-gray-900 text-gray-900" />
-                                    </div>
-                                    Watch Demo
-                                </Link>
+                                <LaunchPopup>
+                                    <Link
+                                        href="#"
+                                        className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white bg-[var(--color-primary)] rounded-full shadow-lg shadow-green-500/30 hover:bg-green-600 transition-all hover:scale-105 w-full md:w-auto"
+                                    >
+                                        Start Free Trial <ArrowRight className="ml-2 h-5 w-5" />
+                                    </Link>
+                                </LaunchPopup>
                             </FadeIn>
                         </div>
 
@@ -57,7 +51,7 @@ export default function Hero() {
                             <FadeIn delay={0.4}>
                                 <div className="flex gap-3 justify-center lg:justify-start w-full">
                                     {/* App Store Button */}
-                                    <Link href="#" className="flex-1 lg:flex-none flex items-center justify-center lg:justify-start gap-3 bg-[#0F172A] hover:bg-gray-800 rounded-xl px-4 py-3 transition-all min-w-[140px]">
+                                    <Link href="#" className="flex-1 lg:flex-none flex items-center justify-center lg:justify-start gap-3 bg-[#0F172A] hover:bg-gray-800 rounded-xl px-4 py-3 transition-all w-full sm:w-auto lg:w-48">
                                         <span className="text-white font-bold text-lg">iOS</span>
                                         <div className="text-left">
                                             <div className="text-[9px] font-medium text-gray-400 uppercase tracking-wide">Download on the</div>
@@ -66,7 +60,7 @@ export default function Hero() {
                                     </Link>
 
                                     {/* Google Play Button */}
-                                    <Link href="#" className="flex-1 lg:flex-none flex items-center justify-center lg:justify-start gap-3 bg-[#0F172A] hover:bg-gray-800 rounded-xl px-4 py-3 transition-all min-w-[140px]">
+                                    <Link href="#" className="flex-1 lg:flex-none flex items-center justify-center lg:justify-start gap-3 bg-[#0F172A] hover:bg-gray-800 rounded-xl px-4 py-3 transition-all w-full sm:w-auto lg:w-48">
                                         <Play size={18} className="text-white fill-white" />
                                         <div className="text-left">
                                             <div className="text-[9px] font-medium text-gray-400 uppercase tracking-wide">GET IT ON</div>

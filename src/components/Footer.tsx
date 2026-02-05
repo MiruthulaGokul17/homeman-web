@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Twitter, Instagram, Linkedin, Apple, Play } from "lucide-react";
-import { FadeIn, FadeInItem, StaggerContainer } from "./animations";
+import { StaggerContainer, FadeIn, FadeInItem } from "./animations";
 
 export default function Footer() {
     return (
@@ -88,7 +88,7 @@ export default function Footer() {
                                 </li>
                                 <li>
                                     <Link href="#" className="hover:text-white transition-colors hover:translate-x-1 inline-block">
-                                        Terms of Service
+                                        Terms and Conditions
                                     </Link>
                                 </li>
                             </ul>
@@ -99,20 +99,19 @@ export default function Footer() {
                             <h4 className="font-semibold text-white text-lg">Download Now</h4>
                             <div className="space-y-3">
                                 {/* App Store Button */}
-                                <Link href="#" className="flex items-center gap-3 bg-gray-800 hover:bg-gray-700 rounded-xl px-5 py-3 transition-all w-full max-w-[200px] hover:translate-x-1">
+                                <Link href="#" className="flex items-center gap-3 bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 hover:bg-gray-800 transition-colors w-full">
                                     <Apple size={24} className="text-white fill-current" />
-                                    <div className="text-left">
-                                        <div className="text-[10px] font-medium text-gray-400 uppercase tracking-wide">Download on the</div>
-                                        <div className="text-sm font-semibold text-white leading-none">App Store</div>
+                                    <div className="text-left flex flex-col justify-center">
+                                        <div className="text-[9px] font-bold text-gray-400 uppercase tracking-wide leading-none mb-1">Download on</div>
+                                        <div className="text-lg font-bold text-white leading-none">App Store</div>
                                     </div>
                                 </Link>
 
-                                {/* Google Play Button */}
-                                <Link href="#" className="flex items-center gap-3 bg-gray-800 hover:bg-gray-700 rounded-xl px-5 py-3 transition-all w-full max-w-[200px] hover:translate-x-1">
-                                    <Play size={24} className="text-white fill-current" />
-                                    <div className="text-left">
-                                        <div className="text-[10px] font-medium text-gray-400 uppercase tracking-wide">Get it on</div>
-                                        <div className="text-sm font-semibold text-white leading-none">Google Play</div>
+                                <Link href="#" className="flex items-center gap-3 bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 hover:bg-gray-800 transition-colors w-full">
+                                    <Play size={20} className="text-white fill-current ml-1" />
+                                    <div className="text-left flex flex-col justify-center ml-1">
+                                        <div className="text-[9px] font-bold text-gray-400 uppercase tracking-wide leading-none mb-1">GET IT ON</div>
+                                        <div className="text-lg font-bold text-white leading-none">Google Play</div>
                                     </div>
                                 </Link>
                             </div>
@@ -123,9 +122,9 @@ export default function Footer() {
                 {/* Copyright */}
                 <div className="border-t border-gray-800">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                            <p className="text-center text-gray-500 text-sm">
-                                © 2026 HomeMan Technologies. All rights reserved.
-                            </p>
+                        <p className="text-center text-gray-500 text-sm">
+                            © 2026 HomeMan Technologies. All rights reserved.
+                        </p>
 
                     </div>
                 </div>
