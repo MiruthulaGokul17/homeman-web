@@ -99,19 +99,20 @@ export default function Footer() {
                             <h4 className="font-semibold text-white text-lg">Download Now</h4>
                             <div className="space-y-3">
                                 {/* App Store Button */}
-                                <Link href="#" className="flex items-center gap-3 bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 hover:bg-gray-800 transition-colors w-full">
+                                <Link href="#" className="flex items-center gap-3 bg-gray-800 hover:bg-gray-700 rounded-xl px-5 py-3 transition-all w-full max-w-[200px] hover:translate-x-1">
                                     <Apple size={24} className="text-white fill-current" />
-                                    <div className="text-left flex flex-col justify-center">
-                                        <div className="text-[9px] font-bold text-gray-400 uppercase tracking-wide leading-none mb-1">Download on</div>
-                                        <div className="text-lg font-bold text-white leading-none">App Store</div>
+                                    <div className="text-left">
+                                        <div className="text-[10px] font-medium text-gray-400 uppercase tracking-wide">Download on the</div>
+                                        <div className="text-sm font-semibold text-white leading-none">App Store</div>
                                     </div>
                                 </Link>
 
-                                <Link href="#" className="flex items-center gap-3 bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 hover:bg-gray-800 transition-colors w-full">
-                                    <Play size={20} className="text-white fill-current ml-1" />
-                                    <div className="text-left flex flex-col justify-center ml-1">
-                                        <div className="text-[9px] font-bold text-gray-400 uppercase tracking-wide leading-none mb-1">GET IT ON</div>
-                                        <div className="text-lg font-bold text-white leading-none">Google Play</div>
+                                {/* Google Play Button */}
+                                <Link href="#" className="flex items-center gap-3 bg-gray-800 hover:bg-gray-700 rounded-xl px-5 py-3 transition-all w-full max-w-[200px] hover:translate-x-1">
+                                    <Play size={24} className="text-white fill-current" />
+                                    <div className="text-left">
+                                        <div className="text-[10px] font-medium text-gray-400 uppercase tracking-wide">Get it on</div>
+                                        <div className="text-sm font-semibold text-white leading-none">Google Play</div>
                                     </div>
                                 </Link>
                             </div>
