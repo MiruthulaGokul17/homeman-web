@@ -32,16 +32,6 @@ export default function Footer() {
                             </ul>
                         </div>
 
-                        {/* Socials */}
-                        <div className="flex items-center gap-4">
-                            <Link href="#" className="w-12 h-12 bg-white border border-gray-100 rounded-full flex items-center justify-center text-gray-400 shadow-sm hover:shadow-md hover:border-[#2bdc4f] hover:text-[#2bdc4f] transition-all">
-                                <Twitter size={20} />
-                            </Link>
-                            <Link href="#" className="w-12 h-12 bg-white border border-gray-100 rounded-full flex items-center justify-center text-gray-400 shadow-sm hover:shadow-md hover:border-[#2bdc4f] hover:text-[#2bdc4f] transition-all">
-                                <Instagram size={20} />
-                            </Link>
-                        </div>
-
                         {/* Copyright */}
                         <div className="pt-4 w-full">
                             <p className="text-xs text-gray-400 font-medium">
