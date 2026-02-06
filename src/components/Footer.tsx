@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Twitter, Instagram, Linkedin, Apple, Play } from "lucide-react";
-import { FadeIn, FadeInItem, StaggerContainer } from "./animations";
+import { StaggerContainer, FadeIn, FadeInItem } from "./animations";
 
 export default function Footer() {
     return (
@@ -27,9 +27,8 @@ export default function Footer() {
                         <div className="space-y-4 w-full">
                             <h4 className="text-[10px] font-bold text-gray-900 uppercase tracking-widest mb-2">Quick Links</h4>
                             <ul className="space-y-4 text-sm font-medium text-gray-500">
-                                <li><Link href="#" className="hover:text-[#2bdc4f] transition-colors">About</Link></li>
-                                <li><Link href="#" className="hover:text-[#2bdc4f] transition-colors">Privacy</Link></li>
-                                <li><Link href="#" className="hover:text-[#2bdc4f] transition-colors">Support</Link></li>
+                                <li><Link href="/privacy-policy" className="hover:text-[#2bdc4f] transition-colors">Privacy policy</Link></li>
+                                <li><Link href="#" className="hover:text-[#2bdc4f] transition-colors">Terms and Conditions</Link></li>
                             </ul>
                         </div>
 
@@ -54,7 +53,7 @@ export default function Footer() {
             </footer>
 
             {/* Desktop Footer - Dark Theme */}
-            <footer className="hidden md:block bg-[#0a0f14] text-white">
+            <footer className="hidden md:block bg-[#0a0f14] text-white mb-0">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                     <StaggerContainer className="grid md:grid-cols-3 gap-12">
                         {/* Column 1: Branding */}
@@ -89,7 +88,7 @@ export default function Footer() {
                                 </li>
                                 <li>
                                     <Link href="#" className="hover:text-white transition-colors hover:translate-x-1 inline-block">
-                                        Terms of Service
+                                        Terms and Conditions
                                     </Link>
                                 </li>
                             </ul>
@@ -124,11 +123,10 @@ export default function Footer() {
                 {/* Copyright */}
                 <div className="border-t border-gray-800">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                        <FadeIn delay={0.2}>
-                            <p className="text-center text-gray-500 text-sm">
-                                © 2026 HomeMan Technologies. All rights reserved.
-                            </p>
-                        </FadeIn>
+                        <p className="text-center text-gray-500 text-sm">
+                            © 2026 HomeMan Technologies. All rights reserved.
+                        </p>
+
                     </div>
                 </div>
             </footer>

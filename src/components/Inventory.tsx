@@ -49,7 +49,7 @@ export default function Inventory() {
     ];
 
     return (
-        <section className="py-24 bg-white">
+        <section className="py-10 md:py-16 lg:pt-5 lg:pb-24 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Header */}
@@ -65,13 +65,13 @@ export default function Inventory() {
                             </h2>
                         </FadeIn>
                         <FadeIn delay={0.3}>
-                            <p className="text-lg text-gray-600 max-w-xl">
+                            <p className="text-lg text-gray-600 max-w-xl mx-auto md:mx-0">
                                 A bird&apos;s eye view of your kitchen. Know exactly what you have and what&apos;s about to expire.
                             </p>
                         </FadeIn>
                     </div>
 
-                    <FadeIn delay={0.4} direction="left">
+                    <FadeIn delay={0.4} direction="left" className="w-full md:w-auto flex justify-center md:justify-end">
                         <button className="text-[var(--color-primary)] font-bold flex items-center hover:underline group">
                             View Full Inventory <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </button>
@@ -106,7 +106,7 @@ export default function Inventory() {
                         const isMobileVisible = item.name === "Whole Milk" || item.name === "Large Eggs";
 
                         return (
-                            <FadeInItem key={idx} className={!isMobileVisible ? "hidden md:block" : ""}>
+                            <FadeInItem key={idx} className={idx === 3 ? "hidden lg:block" : (!isMobileVisible ? "hidden md:block" : "")}>
                                 {/* Desktop Card */}
                                 <div className="hidden md:flex bg-white rounded-3xl p-6 shadow-lg shadow-gray-100 border border-gray-100 hover:shadow-xl transition-shadow h-full flex-col justify-between hover:-translate-y-1 duration-300">
                                     <div>
