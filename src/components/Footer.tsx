@@ -64,17 +64,6 @@ export default function Footer() {
                             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
                                 Empowering households to eat better, waste less, and live smarter with AI-driven pantry intelligence.
                             </p>
-                            <div className="flex items-center gap-4">
-                                <Link href="#" className="w-10 h-10 bg-gray-700/50 rounded-full flex items-center justify-center text-gray-400 hover:bg-gray-600 hover:text-white transition-all transform hover:scale-110">
-                                    <Twitter size={18} />
-                                </Link>
-                                <Link href="#" className="w-10 h-10 bg-gray-700/50 rounded-full flex items-center justify-center text-gray-400 hover:bg-gray-600 hover:text-white transition-all transform hover:scale-110">
-                                    <Instagram size={18} />
-                                </Link>
-                                <Link href="#" className="w-10 h-10 bg-gray-700/50 rounded-full flex items-center justify-center text-gray-400 hover:bg-gray-600 hover:text-white transition-all transform hover:scale-110">
-                                    <Linkedin size={18} />
-                                </Link>
-                            </div>
                         </FadeInItem>
 
                         {/* Column 2: Quick Links */}
