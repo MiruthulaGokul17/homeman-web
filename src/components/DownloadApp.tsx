@@ -20,22 +20,22 @@ export default function DownloadApp() {
 
                         <div className="w-full flex flex-col gap-4">
                             {/* App Store */}
-                            <button className="flex items-center gap-4 bg-[#25bd45] rounded-2xl px-6 py-4 w-full justify-center shadow-lg shadow-green-700/10 active:scale-95 transition-transform">
+                            <div className="flex items-center gap-4 bg-[#25bd45] rounded-2xl px-6 py-4 w-full justify-center shadow-md shadow-green-700/10">
                                 <Apple size={28} className="text-white fill-current" />
                                 <div className="text-left flex flex-col">
                                     <div className="text-[10px] font-bold text-white/80 uppercase tracking-wide leading-none mb-1">Download on the</div>
                                     <div className="text-lg font-bold text-white leading-none">App Store</div>
                                 </div>
-                            </button>
+                            </div>
 
                             {/* Google Play */}
-                            <button className="flex items-center gap-4 bg-[#25bd45] rounded-2xl px-6 py-4 w-full justify-center shadow-lg shadow-green-700/10 active:scale-95 transition-transform">
+                            <div className="flex items-center gap-4 bg-[#25bd45] rounded-2xl px-6 py-4 w-full justify-center shadow-md shadow-green-700/10">
                                 <Play size={24} className="text-white fill-current ml-1" />
                                 <div className="text-left flex flex-col ml-1">
                                     <div className="text-[10px] font-bold text-white/80 uppercase tracking-wide leading-none mb-1">GET IT ON</div>
                                     <div className="text-lg font-bold text-white leading-none">Google Play</div>
                                 </div>
-                            </button>
+                            </div>
                         </div>
                     </div>
                 </FadeIn>
