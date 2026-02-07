@@ -19,7 +19,7 @@ export default function Hero() {
                         <FadeIn delay={0.1}>
                             <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white text-[var(--color-primary)] text-sm font-bold tracking-widest uppercase mb-4 mx-auto lg:mx-0 shadow-sm">
                                 <div className="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse"></div>
-                                Now Live
+                                Launching Soon
                             </div>
                             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-gray-900">
                                 Your Kitchen, <br />
